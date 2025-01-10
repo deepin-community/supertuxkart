@@ -1,0 +1,15 @@
+Author: Michael Hudson-Doyle <michael.hudson@ubuntu.com>
+Description: Fix FTBFS on armhf
+Bug: https://github.com/supertuxkart/stk-code/issues/4638
+Bug-Debian: https://bugs.debian.org/1006141
+
+--- a/lib/angelscript/source/as_callfunc_arm_gcc.S
++++ b/lib/angelscript/source/as_callfunc_arm_gcc.S
+@@ -314,6 +314,7 @@
+ #else
+     .arm            /* Use ARM instructions instead of Thumb.*/
+ #endif
++    .fpu vfp
+     .globl armFunc  /* Make the function globally accessible.*/
+ armFunc:
+     push    {r4-r8, r10, r11, lr}   /* sp must be 8-byte alignment for ABI compliance, so the pushed registers must be even */

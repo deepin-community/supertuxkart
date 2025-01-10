@@ -1,0 +1,25 @@
+Origin: upstream, https://github.com/google/shaderc/pull/1264
+Description: fix building of shaderc with newer glslang in Debian
+
+--- a/lib/shaderc/libshaderc_util/src/resources.cc
++++ b/lib/shaderc/libshaderc_util/src/resources.cc
+@@ -126,6 +126,19 @@
+     /* .maxTaskWorkGroupSizeZ_NV = */ 1,
+     /* .maxMeshViewCountNV = */ 4,
+     /* .maxDualSourceDrawBuffersEXT = */ 1,
++
++    /* following defaults taken from
++       https://github.com/google/shaderc/pull/1264 */
++    /* .maxMeshOutputVerticesEXT = */ 256,
++    /* .maxMeshOutputPrimitivesEXT = */ 256,
++    /* .maxMeshWorkGroupSizeX_EXT = */ 128,
++    /* .maxMeshWorkGroupSizeY_EXT = */ 128,
++    /* .maxMeshWorkGroupSizeZ_EXT = */ 128,
++    /* .maxTaskWorkGroupSizeX_EXT = */ 128,
++    /* .maxTaskWorkGroupSizeY_EXT = */ 128,
++    /* .maxTaskWorkGroupSizeZ_EXT = */ 128,
++    /* .maxMeshViewCountEXT = */ 4,
++
+     // This is the glslang TLimits structure.
+     // It defines whether or not the following features are enabled.
+     // We want them to all be enabled.

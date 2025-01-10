@@ -1,0 +1,18 @@
+Description: Link against system copies of zlib/libpng/libjpeg/bzip2
+Forwarded: not-yet
+Author: Vincent Cheng <vcheng@debian.org>
+Last-Update: 2019-06-04
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -724,6 +724,10 @@
+         ${SQUISH_LIBRARY}
+         ${JPEG_LIBRARIES}
+         ${OGGVORBIS_LIBRARIES}
++        X11
++        z
++        png
++        jpeg
+         ${FREETYPE_LIBRARIES}
+         ${HARFBUZZ_LIBRARY}
+         ${SHEENBIDI_LIBRARY}
